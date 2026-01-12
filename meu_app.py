@@ -208,6 +208,30 @@ with st.container():
 # =========================
 # CURSOS E IDIOMAS
 # =========================
+
+with st.container(): 
+	st.write("---") 
+	st.header("Cursos e Idiomas") 
+
+	col1, col2 = st.columns(2) 
+
+	with col1: 
+		st.markdown("""
+		- Power BI | Fundação Bradesco 
+		- Python | SENAI 
+		- Python | Universidade Presbiteriana Mackenzie 
+		- SQL para Data Science - Power Platform (PL-900) 
+		- Cloud Fundamentals | FIAP 
+		- Big Data & Analytics | FIAP 
+		""") 
+
+with col2: 
+	st.markdown("""
+	- Inglês: leitura técnica 
+	- Espanhol: leitura técnica 
+	""")
+
+
 # =========================
 # EVOLUÇÃO DE ESTUDOS
 # =========================
@@ -305,3 +329,4 @@ with st.container():
 with st.container():
     st.write("---")
     st.write("© 2026 | Mike Castor | Portfólio Profissional em Python & Streamlit")
+

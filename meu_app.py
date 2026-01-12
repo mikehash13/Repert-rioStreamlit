@@ -273,7 +273,7 @@ with st.container():
 
         dados_filtrados = dados_mensais[
             dados_mensais["data"].between(data_min, data_max)
-        ]
+        ].copy()
         dados_filtrados["ano"] = dados_filtrados["data"].dt.year
 
         # -------------------------
@@ -305,3 +305,4 @@ with st.container():
 with st.container():
     st.write("---")
     st.write("© 2026 | Mike Castor | Portfólio Profissional em Python & Streamlit")
+

@@ -305,4 +305,3 @@ with st.container():
 with st.container():
     st.write("---")
     st.write("© 2026 | Mike Castor | Portfólio Profissional em Python & Streamlit")
-

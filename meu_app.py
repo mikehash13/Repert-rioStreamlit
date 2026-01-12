@@ -46,7 +46,7 @@ with st.container():
             """
         )
         st.markdown(
-            "🔗 [LinkedIn](https://www.linkedin.com/in/mike-castor-55267b172)  |  📧 mike12345191@gmail.com | 📞 (11) 96872-5870"
+            "🔗 [LinkedIn](https://www.linkedin.com/in/mike-castor-55267b172)  |  📧 mike12345191@gmail.com | 📞 (11) 9 6872-5870"
         )
 
 # =========================
@@ -208,29 +208,6 @@ with st.container():
 # =========================
 # CURSOS E IDIOMAS
 # =========================
-with st.container():
-    st.write("---")
-    st.header("Cursos e Idiomas")
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        st.markdown("""
-        - Power BI | Fundação Bradesco  
-        - Python | SENAI  
-        - Python | Universidade Presbiteriana Mackenzie  
-        - SQL para Data Science  
-        - Power Platform (PL-900)  
-        - Cloud Fundamentals | FIAP  
-        - Big Data & Analytics | FIAP  
-        """)
-
-    with col2:
-        st.markdown("""
-        - Inglês: leitura técnica  
-        - Espanhol: leitura técnica  
-        """)
-
 # =========================
 # EVOLUÇÃO DE ESTUDOS
 # =========================
@@ -242,18 +219,48 @@ with st.container():
         dados = carregar_dados()
 
         mapa_meses = {
-            "jan": "01", "fev": "02", "mar": "03", "abr": "04",
-            "mai": "05", "jun": "06", "jul": "07", "ago": "08",
-            "set": "09", "out": "10", "nov": "11", "dez": "12"
+            "jan": 1, "fev": 2, "mar": 3, "abr": 4,
+            "mai": 5, "jun": 6, "jul": 7, "ago": 8,
+            "set": 9, "out": 10, "nov": 11, "dez": 12
         }
 
-        dados["data"] = dados["data"].str.lower()
-        dados["mes"] = dados["data"].str[:3].map(mapa_meses)
-        dados["ano"] = "20" + dados["data"].str[-2:]
-        dados["data_formatada"] = pd.to_datetime(
-            dados["ano"] + "-" + dados["mes"] + "-01"
-        )
+        # -------------------------
+        # Converter datas
+        # -------------------------
+        def converter_mes_ano(valor):
+            mes = mapa_meses[valor[:3].lower()]
+            ano = int("20" + valor[-2:])
+            return pd.Timestamp(year=ano, month=mes, day=1)
 
+        dados["data_inicio"] = dados["dataone"].apply(converter_mes_ano)
+        dados["data_fim"] = dados["datatwo"].apply(converter_mes_ano)
+
+        # -------------------------
+        # Expandir cursos por mês
+        # -------------------------
+        linhas = []
+
+        for _, row in dados.iterrows():
+            meses = pd.date_range(
+                start=row["data_inicio"],
+                end=row["data_fim"],
+                freq="MS"
+            )
+
+            duracao_mensal = row["duracao"] / len(meses)
+
+            for mes in meses:
+                linhas.append({
+                    "data": mes,
+                    "instituicao": row["instituicao"],
+                    "duracao": duracao_mensal
+                })
+
+        dados_mensais = pd.DataFrame(linhas)
+
+        # -------------------------
+        # Filtro de período
+        # -------------------------
         qtd_dias = st.selectbox(
             "Período de análise",
             ["365", "1825", "3650"],
@@ -261,25 +268,36 @@ with st.container():
         )
 
         num_dias = int(qtd_dias)
-        data_max = dados["data_formatada"].max()
+        data_max = dados_mensais["data"].max()
         data_min = data_max - pd.Timedelta(days=num_dias)
 
-        dados_filtrados = dados[
-            dados["data_formatada"].between(data_min, data_max)
+        dados_filtrados = dados_mensais[
+            dados_mensais["data"].between(data_min, data_max)
         ]
+        dados_filtrados["ano"] = dados_filtrados["data"].dt.year
+
+        # -------------------------
+        # GRÁFICOS
+        # -------------------------
+        st.subheader("Carga horária anual de estudos")
+
+        st.bar_chart(
+            dados_filtrados
+            .groupby("ano")["duracao"]
+            .sum()
+            .sort_index()
+        )
 
         st.subheader("Carga horária por instituição")
         st.area_chart(
-            dados_filtrados.groupby("instituicao")["duracao"].sum()
+            dados_filtrados
+            .groupby("instituicao")["duracao"]
+            .sum()
         )
 
-        st.subheader("Carga horária mensal de estudos")
-        st.bar_chart(
-            dados_filtrados.groupby("data_formatada")["duracao"].sum()
-        )
+    except Exception as e:
+        st.warning("Erro ao processar os dados de evolução de estudos.")
 
-    except Exception:
-        st.warning("Não foi possível carregar os dados de cursos.")
 
 # =========================
 # RODAPÉ
@@ -287,4 +305,6 @@ with st.container():
 with st.container():
     st.write("---")
     st.write("© 2026 | Mike Castor | Portfólio Profissional em Python & Streamlit")
+
+
 

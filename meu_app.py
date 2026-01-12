@@ -206,12 +206,13 @@ with st.container():
 
     with col1:
         st.markdown("""
-        - Power BI
-        - Python
-        - SQL
-        - Power Platform
-        - Cloud Fundamentals
-        - Big Data & Analytics (FIAP)
+        - Power BI | Fundação Bradesco | 37 horas
+        - Python | SENAI Ary Torres | 30 horas
+        - Python | Universidade Presbiteriana Mackenzie | 8 horas
+        - SQL | Banco de dados para data science | 40 horas
+        - Power Platform | PL-900 | 40 horas
+        - Cloud Fundamentals | FIAP | 60 horas
+        - Big Data & Analytics | FIAP | 80 horas
         """)
 
     with col2:
@@ -307,3 +308,4 @@ with st.container():
 with st.container():
     st.write("---")
     st.write("© 2026 | Desenvolvido por Mike Castor | Portfólio em Python & Streamlit")
+

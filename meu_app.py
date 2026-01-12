@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # python -m streamlit run meu_app.py
+
 # =========================
 # CONFIGURAÇÃO DA PÁGINA
 # =========================
@@ -19,39 +20,51 @@ def carregar_dados():
     return pd.read_csv("cursos.csv", sep=";")
 
 # =========================
-# HEADER
+# HEADER COM FOTO
 # =========================
 with st.container():
-    st.title("Mike Vinicius Viana Gonçalves Castor")
-    st.subheader(
-        "Analista de Dados | Business Intelligence | SQL | Python | Automação | Power Platform"
-    )
-    st.write(
-        """
-        Analista de Desenvolvimento de Sistemas em formação pela **Universidade Presbiteriana Mackenzie**,
-        atualmente **Analista de PCM Pleno na STAHL** com forte atuação em **dados, automação e inovação de processos**.
-        """
-    )
-    st.markdown(
-        "🔗 [LinkedIn](https://www.linkedin.com/in/mike-castor-55267b172)  |  📧 mike.gb11@outlook.com"
-    )
+    col_foto, col_info = st.columns([1, 4])
+
+    with col_foto:
+        st.image(
+            "fotomike.jpg",
+            width=160
+        )
+
+    with col_info:
+        st.title("Mike Vinicius Viana Gonçalves Castor")
+        st.markdown(
+            "**Analista de Dados | Business Intelligence | SQL | Python | Power Platform**"
+        )
+        st.write(
+            """
+            Profissional em formação em **Análise e Desenvolvimento de Sistemas pela Universidade Presbiteriana Mackenzie**,
+            com atuação prática em **dados, automação de processos e inteligência analítica**.
+            
+            Atualmente **Analista de PCM Pleno na STAHL**, com forte foco em **eficiência operacional, dashboards executivos
+            e integração de sistemas**.
+            """
+        )
+        st.markdown(
+            "🔗 [LinkedIn](https://www.linkedin.com/in/mike-castor-55267b172)  |  📧 mike12345191@gmail.com | 📞 (11) 96872-5870"
+        )
 
 # =========================
 # SOBRE MIM
 # =========================
 with st.container():
     st.write("---")
-    st.header("👨‍💻 Sobre mim")
+    st.header("Sobre o profissional")
     st.write(
         """
-        Atuo com foco em **dados, automação e inovação de processos**, desenvolvendo soluções para
-        redução de atividades operacionais e aumento da eficiência.
+        Atuo com foco em **análise de dados, automação e melhoria contínua**, desenvolvendo soluções que reduzem esforço
+        operacional, aumentam a confiabilidade das informações e suportam a tomada de decisão estratégica.
 
-        Possuo alta capacidade analítica, experiência em programação, vivência acadêmica e profissional,
-        além de facilidade para conduzir trabalhos em equipe e atingir metas agressivas.
+        Possuo perfil analítico, pensamento estruturado e experiência prática em ambientes operacionais e corporativos,
+        com facilidade para transitar entre áreas técnicas e de negócio.
 
-        Estou empenhado em seguir carreira na **tecnologia do mercado financeiro**, aplicando dados
-        e inteligência analítica para apoiar a tomada de decisão.
+        Meu objetivo profissional é consolidar carreira na **área de tecnologia e dados**, com direcionamento ao
+        **mercado financeiro e grandes organizações**.
         """
     )
 
@@ -60,7 +73,7 @@ with st.container():
 # =========================
 with st.container():
     st.write("---")
-    st.header("🛠️ Habilidades Técnicas")
+    st.header("Competências Técnicas")
 
     col1, col2, col3 = st.columns(3)
 
@@ -70,16 +83,16 @@ with st.container():
         - Python
         - SQL
         - Pandas
-        - APIs
+        - Consumo de APIs
         """)
 
     with col2:
         st.markdown("""
-        **BI & Analytics**
+        **Business Intelligence**
         - Power BI
         - DAX
         - Modelagem de Dados
-        - KPIs e Indicadores
+        - KPIs Executivos
         """)
 
     with col3:
@@ -96,53 +109,50 @@ with st.container():
 # =========================
 with st.container():
     st.write("---")
-    st.header("📂 Projetos em Destaque")
+    st.header("Projetos Relevantes")
 
-    st.subheader("🚀 Automação de Orçamentos com Power Platform + IA")
+    st.subheader("Automação de Orçamentos com Power Platform e IA")
     st.write(
         """
-        **Objetivo:** Reduzir retrabalho, padronizar informações e acelerar o fluxo de solicitações.
+        **Objetivo:** Otimizar o fluxo de solicitações comerciais, reduzindo retrabalho e erros manuais.
 
-        - Assistente técnico com **ChatGPT**
-        - Aplicativo em **Power Apps**
-        - Automação com **Power Automate**
-        - Integração via **API (SGMAN)**
-        - Dashboard em **Power BI**
+        - Assistente técnico com IA generativa (ChatGPT)
+        - Aplicação em Power Apps
+        - Fluxos automatizados com Power Automate
+        - Integração via API com sistema SGMAN
+        - Dashboard gerencial em Power BI
 
-        **Resultado:** Processo mais rápido, confiável e rastreável.
+        **Resultado:** Processo padronizado, rastreável e significativamente mais ágil.
         """
     )
 
-    st.subheader("📊 Cronograma Multicliente de Manutenção Preventiva")
+    st.subheader("Cronograma Multicliente de Manutenção Preventiva")
     st.write(
         """
-        - Cronograma em 12 ciclos
-        - Status em tempo real por TAG
-        - Alertas de atraso
-        - KPIs de preventivas em dia
-
-        **Impacto:** Aumento da previsibilidade e redução de riscos.
+        - Planejamento em ciclos anuais
+        - Acompanhamento por TAG
+        - Indicadores de atraso e aderência
+        - Visão executiva de preventivas em dia
         """
     )
 
-    st.subheader("🛠️ Dashboard de Performance de Manutenção (PCM)")
+    st.subheader("Dashboard de Performance de Manutenção (PCM)")
     st.write(
         """
-        - Breakdown (h)
-        - MTBF
-        - MTTR
-        - Confiabilidade em 100 dias
-        - Total de TAGs monitorados
+        - MTBF e MTTR
+        - Horas de breakdown
+        - Indicadores de confiabilidade
+        - Monitoramento de ativos
         """
     )
 
-    st.subheader("🚗 Monitoramento de Frota e Custos Operacionais")
+    st.subheader("Monitoramento de Frota e Custos Operacionais")
     st.write(
         """
-        - Consumo e gasto por motorista
-        - Rotas com mapa interativo
+        - Custos por motorista
+        - Análise de consumo
+        - Tendências mensais
         - Ranking de ocorrências
-        - Tendências mensais de custo
         """
     )
 
@@ -151,17 +161,17 @@ with st.container():
 # =========================
 with st.container():
     st.write("---")
-    st.header("💼 Experiência Profissional")
+    st.header("Experiência Profissional")
 
     st.subheader("STAHL Equipamentos — Analista de PCM Pleno")
     st.write(
         """
         **Mai/2022 – Atual**
 
-        - Modelagem de dados em SQL  
-        - Dashboards em Power BI (DAX)  
-        - Automação e Power Apps  
-        - Integrações via API  
+        - Análise e modelagem de dados em SQL  
+        - Desenvolvimento de dashboards em Power BI  
+        - Automação de processos operacionais  
+        - Integração de sistemas via API  
         """
     )
 
@@ -172,7 +182,7 @@ with st.container():
 
         - Manutenção preventiva e corretiva  
         - Análise de falhas  
-        - Dados operacionais
+        - Tratamento de dados operacionais  
         """
     )
 
@@ -181,17 +191,17 @@ with st.container():
 # =========================
 with st.container():
     st.write("---")
-    st.header("🎓 Formação Acadêmica")
+    st.header("Formação Acadêmica")
 
     st.write(
         """
         **Análise e Desenvolvimento de Sistemas**  
         Universidade Presbiteriana Mackenzie  
-        *Jan/2026 – Jun/2028*
+        *2026 – 2028*
 
         **Técnico em Eletroeletrônica**  
         SENAI  
-        *Jul/2019 – Jun/2021*
+        *2019 – 2021*
         """
     )
 
@@ -200,40 +210,37 @@ with st.container():
 # =========================
 with st.container():
     st.write("---")
-    st.header("📚 Cursos & Idiomas")
+    st.header("Cursos e Idiomas")
 
     col1, col2 = st.columns(2)
 
     with col1:
         st.markdown("""
-        - Power BI | Fundação Bradesco | 37 horas
-        - Python | SENAI Ary Torres | 30 horas
-        - Python | Universidade Presbiteriana Mackenzie | 8 horas
-        - SQL | Banco de dados para data science | 40 horas
-        - Power Platform | PL-900 | 40 horas
-        - Cloud Fundamentals | FIAP | 60 horas
-        - Big Data & Analytics | FIAP | 80 horas
+        - Power BI | Fundação Bradesco  
+        - Python | SENAI  
+        - Python | Universidade Presbiteriana Mackenzie  
+        - SQL para Data Science  
+        - Power Platform (PL-900)  
+        - Cloud Fundamentals | FIAP  
+        - Big Data & Analytics | FIAP  
         """)
 
     with col2:
         st.markdown("""
-        - Inglês: Leitura técnica  
-        - Espanhol: Leitura técnica
+        - Inglês: leitura técnica  
+        - Espanhol: leitura técnica  
         """)
 
 # =========================
-# GRÁFICOS COM FILTRO DE PERÍODO
+# EVOLUÇÃO DE ESTUDOS
 # =========================
 with st.container():
     st.write("---")
-    st.header("📈 Evolução de Estudos")
+    st.header("Evolução de Estudos")
 
     try:
         dados = carregar_dados()
 
-        # -------------------------
-        # TRATAMENTO DE DATA
-        # -------------------------
         mapa_meses = {
             "jan": "01", "fev": "02", "mar": "03", "abr": "04",
             "mai": "05", "jun": "06", "jul": "07", "ago": "08",
@@ -247,17 +254,13 @@ with st.container():
             dados["ano"] + "-" + dados["mes"] + "-01"
         )
 
-        # -------------------------
-        # SELETOR DE PERÍODO
-        # -------------------------
         qtd_dias = st.selectbox(
-            "Selecione o período de análise",
-            ["7D", "30D", "90D", "365", "1825", "3650"],
-            index=1
+            "Período de análise",
+            ["365", "1825", "3650"],
+            index=2
         )
 
-        num_dias = int(qtd_dias.replace("D", ""))
-
+        num_dias = int(qtd_dias)
         data_max = dados["data_formatada"].max()
         data_min = data_max - pd.Timedelta(days=num_dias)
 
@@ -265,47 +268,23 @@ with st.container():
             dados["data_formatada"].between(data_min, data_max)
         ]
 
-        # -------------------------
-        # GRÁFICO POR INSTITUIÇÃO
-        # -------------------------
-        duracao_por_instituicao = (
-            dados_filtrados
-            .groupby("instituicao")["duracao"]
-            .sum()
-            .reset_index()
-        )
-
         st.subheader("Carga horária por instituição")
         st.area_chart(
-            duracao_por_instituicao,
-            x="instituicao",
-            y="duracao"
+            dados_filtrados.groupby("instituicao")["duracao"].sum()
         )
 
-        # -------------------------
-        # GRÁFICO MENSAL
-        # -------------------------
-        dados_agrupados = (
-            dados_filtrados
-            .groupby("data_formatada")["duracao"]
-            .sum()
-            .reset_index()
-        )
-
-        st.subheader("Carga horária de estudos por mês")
+        st.subheader("Carga horária mensal de estudos")
         st.bar_chart(
-            dados_agrupados,
-            x="data_formatada",
-            y="duracao"
+            dados_filtrados.groupby("data_formatada")["duracao"].sum()
         )
 
-    except Exception as e:
-        st.warning("Erro ao carregar os dados de cursos.")
+    except Exception:
+        st.warning("Não foi possível carregar os dados de cursos.")
 
 # =========================
 # RODAPÉ
 # =========================
 with st.container():
     st.write("---")
-    st.write("© 2026 | Desenvolvido por Mike Castor | Portfólio em Python & Streamlit")
+    st.write("© 2026 | Mike Castor | Portfólio Profissional em Python & Streamlit")
 

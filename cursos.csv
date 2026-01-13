@@ -1,4 +1,4 @@
-curso,duracao,instituicao,dataone,datatwo
+curso;duracao;instituicao;dataone;datatwo
 Fundamentos em Python;30;SENAI Ary Torres;nov/25;dez/25
 Banco de dados para Data Science;40;SENAI Ary Torres;out/25;nov/25
 Big Data & Analytcs;60;FIAP;dez/25;dez/25
@@ -11,4 +11,5 @@ Tecnico em eletroeletronica;1500;SENAI Ary Torres;jul/19;jun/21
 Mecanico de manutencao;1500;SENAI Ary Torres;jan/17;dez/18
 Fundamentos do Power BI;37;Fundacao Bradesco;dez/25;dez/25
 Tecnologia da informacao e comunicacao;14;SENAI Ary Torres;jun/20;jun/20
+
 

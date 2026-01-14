@@ -34,7 +34,7 @@ with st.container():
     with col_info:
         st.title("Mike Vinicius Viana Gonçalves Castor")
         st.markdown(
-            "**Analista de Dados | Business Intelligence | SQL | Python | Power Platform**"
+            "**Analista de Dados | BI | SQL | Python | Power Platform | Automação de Processos | Data Analytics**"
         )
         st.write(
             """
@@ -42,7 +42,8 @@ with st.container():
             com atuação prática em **dados, automação de processos e inteligência analítica**.
             
             Atualmente **Analista de PCM Pleno na STAHL**, com forte foco em **eficiência operacional, dashboards executivos
-            e integração de sistemas**.
+            e integração de sistemas** desenvolvendo soluções analíticas e aplicações em Python e Power Platform voltadas à automação, 
+			visualização de dados e apoio à tomada de decisão, com experiência prática em ambientes operacionais críticos e corporativos.
             """
         )
         st.markdown(
@@ -136,7 +137,7 @@ with st.container():
         """
     )
 
-    st.subheader("Dashboard de Performance de Manutenção (PCM)")
+    st.subheader("Dashboard de Performance Operancional e Confiabilidade")
     st.write(
         """
         - MTBF e MTTR
@@ -330,6 +331,7 @@ with st.container():
 with st.container():
     st.write("---")
     st.write("© 2026 | Mike Castor | Portfólio Profissional em Python & Streamlit")
+
 
 
 

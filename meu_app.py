@@ -200,7 +200,7 @@ with st.container():
         *2026 – 2028*
 
         **Técnico em Eletroeletrônica**  
-        SENAI  
+        SENAI Ary Torres
         *2019 – 2021*
         """
     )
@@ -217,13 +217,14 @@ with st.container():
 
 	with col1: 
 		st.markdown("""
-		- Power BI | Fundação Bradesco 
-		- Python | SENAI 
+		- Fundamentos do Power BI | Fundação Bradesco 
+		- Fundamentos do Python | SENAI 
 		- Python | Universidade Presbiteriana Mackenzie 
-		- SQL para Data Science - Power Platform (PL-900) 
-		- Cloud Fundamentals | FIAP 
-		- Big Data & Analytics | FIAP 
-		""") 
+		- Banco de dados para Data Science (SQL) | SENAI
+		- Microsoft Power Platform (PL-900) | SENAI
+		- Cloud Fundamentals | FIAP
+		- Big Data & Analytics | FIAP
+		""")
 
 with col2: 
 	st.markdown("""
@@ -329,4 +330,5 @@ with st.container():
 with st.container():
     st.write("---")
     st.write("© 2026 | Mike Castor | Portfólio Profissional em Python & Streamlit")
+
 

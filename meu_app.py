@@ -195,12 +195,12 @@ with st.container():
 
     st.write(
         """
-        **Análise e Desenvolvimento de Sistemas**
-        Universidade Presbiteriana Mackenzie
+        **Análise e Desenvolvimento de Sistemas**  
+        Universidade Presbiteriana Mackenzie  
         *2026 – 2028*
 
-        **Técnico em Eletroeletrônica**
-        SENAI Ary Torres
+        **Técnico em Eletroeletrônica**  
+        SENAI Ary Torres  
         *2019 – 2021*
         """
     )
@@ -332,6 +332,7 @@ with st.container():
 with st.container():
     st.write("---")
     st.write("© 2026 | Mike Castor | Portfólio Profissional em Python & Streamlit")
+
 
 
 

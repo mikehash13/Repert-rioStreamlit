@@ -320,26 +320,24 @@ with st.container():
             .sum()
         )
 
+		st.subheader("Evolução da carga horária por área de conhecimento")
+		dados_area = (
+			.groupby(["data", "area"])["duracao"]
+			.sum()
+			.reset_index()
+		)
+
+		pivot_area = dados_area.pivot(
+    		index="data",
+    		columns="area",
+    		values="duracao"
+		).fillna(0)
+
+		st.area_chart(pivot_area)
+
     except Exception as e:
         st.warning("Erro ao processar os dados de evolução de estudos.")
 
-
-		st.subheader("Evolução da carga horária por área de conhecimento")
-
-		dados_area = (
-		    dados_filtrados
-		    .groupby(["data", "area"])["duracao"]
-		    .sum()
-		    .reset_index()
-		)
-		
-		pivot_area = dados_area.pivot(
-		    index="data",
-		    columns="area",
-		    values="duracao"
-		).fillna(0)
-		
-		st.area_chart(pivot_area)
 
 # =========================
 # RODAPÉ
@@ -347,6 +345,7 @@ with st.container():
 with st.container():
     st.write("---")
     st.write("© 2026 | Mike Castor | Portfólio Profissional em Python & Streamlit")
+
 
 
 

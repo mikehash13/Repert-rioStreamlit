@@ -40,7 +40,7 @@ with st.container():
             """
             Profissional em formação em **Análise e Desenvolvimento de Sistemas pela Universidade Presbiteriana Mackenzie**,
             com atuação prática em **dados, automação de processos e inteligência analítica**.
-            
+
             Atualmente **Analista de PCM Pleno na STAHL**, com forte foco em **eficiência operacional, dashboards executivos
             e integração de sistemas**.
             """
@@ -168,10 +168,10 @@ with st.container():
         """
         **Mai/2022 – Atual**
 
-        - Análise e modelagem de dados em SQL  
-        - Desenvolvimento de dashboards em Power BI  
-        - Automação de processos operacionais  
-        - Integração de sistemas via API  
+        - Análise e modelagem de dados em SQL
+        - Desenvolvimento de dashboards em Power BI
+        - Automação de processos operacionais
+        - Integração de sistemas via API
         """
     )
 
@@ -180,9 +180,9 @@ with st.container():
         """
         **Jul/2021 – Mar/2022**
 
-        - Manutenção preventiva e corretiva  
-        - Análise de falhas  
-        - Tratamento de dados operacionais  
+        - Manutenção preventiva e corretiva
+        - Análise de falhas
+        - Tratamento de dados operacionais
         """
     )
 
@@ -195,12 +195,12 @@ with st.container():
 
     st.write(
         """
-        **Análise e Desenvolvimento de Sistemas**  
-        Universidade Presbiteriana Mackenzie  
+        **Análise e Desenvolvimento de Sistemas**
+        Universidade Presbiteriana Mackenzie
         *2026 – 2028*
 
-        **Técnico em Eletroeletrônica**  
-        SENAI Ary Torres  
+        **Técnico em Eletroeletrônica**
+        SENAI Ary Torres
         *2019 – 2021*
         """
     )
@@ -208,30 +208,28 @@ with st.container():
 # =========================
 # CURSOS E IDIOMAS
 # =========================
+with st.container():
+    st.write("---")
+    st.header("Cursos e Idiomas")
 
-with st.container(): 
-	st.write("---") 
-	st.header("Cursos e Idiomas") 
+    col1, col2 = st.columns(2)
 
-	col1, col2 = st.columns(2) 
+    with col1:
+        st.markdown("""
+        - Fundamentos do Power BI | Fundação Bradesco
+        - Fundamentos do Python | SENAI
+        - Python | Universidade Presbiteriana Mackenzie
+        - Banco de dados para Data Science (SQL) | SENAI
+        - Microsoft Power Platform (PL-900) | SENAI
+        - Cloud Fundamentals | FIAP
+        - Big Data & Analytics | FIAP
+        """)
 
-	with col1: 
-		st.markdown("""
-		- Fundamentos do Power BI | Fundação Bradesco 
-		- Fundamentos do Python | SENAI 
-		- Python | Universidade Presbiteriana Mackenzie 
-		- Banco de dados para Data Science (SQL) | SENAI
-		- Microsoft Power Platform (PL-900) | SENAI
-		- Cloud Fundamentals | FIAP
-		- Big Data & Analytics | FIAP
-		""")
-
-with col2: 
-	st.markdown("""
-	- Inglês: leitura técnica 
-	- Espanhol: leitura técnica 
-	""")
-
+    with col2:
+        st.markdown("""
+        - Inglês: leitura técnica
+        - Espanhol: leitura técnica
+        """)
 
 # =========================
 # EVOLUÇÃO DE ESTUDOS
@@ -249,9 +247,6 @@ with st.container():
             "set": 9, "out": 10, "nov": 11, "dez": 12
         }
 
-        # -------------------------
-        # Converter datas
-        # -------------------------
         def converter_mes_ano(valor):
             mes = mapa_meses[valor[:3].lower()]
             ano = int("20" + valor[-2:])
@@ -260,9 +255,6 @@ with st.container():
         dados["data_inicio"] = dados["dataone"].apply(converter_mes_ano)
         dados["data_fim"] = dados["datatwo"].apply(converter_mes_ano)
 
-        # -------------------------
-        # Expandir cursos por mês
-        # -------------------------
         linhas = []
 
         for _, row in dados.iterrows():
@@ -278,14 +270,12 @@ with st.container():
                 linhas.append({
                     "data": mes,
                     "instituicao": row["instituicao"],
+                    "area": row["area"],
                     "duracao": duracao_mensal
                 })
 
         dados_mensais = pd.DataFrame(linhas)
 
-        # -------------------------
-        # Filtro de período
-        # -------------------------
         qtd_dias = st.selectbox(
             "Período de análise",
             ["365", "1825", "3650"],
@@ -299,13 +289,10 @@ with st.container():
         dados_filtrados = dados_mensais[
             dados_mensais["data"].between(data_min, data_max)
         ].copy()
+
         dados_filtrados["ano"] = dados_filtrados["data"].dt.year
 
-        # -------------------------
-        # GRÁFICOS
-        # -------------------------
         st.subheader("Carga horária anual de estudos")
-
         st.bar_chart(
             dados_filtrados
             .groupby("ano")["duracao"]
@@ -320,24 +307,24 @@ with st.container():
             .sum()
         )
 
-		st.subheader("Evolução da carga horária por área de conhecimento")
-		dados_area = (
-			.groupby(["data", "area"])["duracao"]
-			.sum()
-			.reset_index()
-		)
+        st.subheader("Evolução da carga horária por área de conhecimento")
+        dados_area = (
+            dados_filtrados
+            .groupby(["data", "area"])["duracao"]
+            .sum()
+            .reset_index()
+        )
 
-		pivot_area = dados_area.pivot(
-    		index="data",
-    		columns="area",
-    		values="duracao"
-		).fillna(0)
+        pivot_area = dados_area.pivot(
+            index="data",
+            columns="area",
+            values="duracao"
+        ).fillna(0)
 
-		st.area_chart(pivot_area)
+        st.area_chart(pivot_area)
 
     except Exception as e:
         st.warning("Erro ao processar os dados de evolução de estudos.")
-
 
 # =========================
 # RODAPÉ
@@ -345,6 +332,8 @@ with st.container():
 with st.container():
     st.write("---")
     st.write("© 2026 | Mike Castor | Portfólio Profissional em Python & Streamlit")
+
+
 
 
 

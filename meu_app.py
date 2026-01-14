@@ -36,15 +36,15 @@ with st.container():
         st.markdown(
             "**Analista de Dados | BI | SQL | Python | Power Platform | Automação de Processos | Data Analytics**"
         )
-		st.write( """ 
-		Profissional em formação em **Análise e Desenvolvimento de Sistemas pela Universidade Presbiteriana Mackenzie**, 
-		com atuação prática em **dados, automação de processos e inteligência analítica**. 
-		
-		Atualmente **Analista de PCM Pleno na STAHL**, com forte foco em **eficiência operacional, 
-		dashboards executivos e integração de sistemas** desenvolvendo soluções analíticas e aplicações em Python 
-		e Power Platform voltadas à automação, visualização de dados e apoio à tomada de decisão, com experiência 
-		prática em ambientes operacionais críticos e corporativos. 
-		""")
+        st.write(
+            """
+            Profissional em formação em **Análise e Desenvolvimento de Sistemas pela Universidade Presbiteriana Mackenzie**,
+            com atuação prática em **dados, automação de processos e inteligência analítica**.
+            
+            Atualmente **Analista de PCM Pleno na STAHL**, com forte foco em **eficiência operacional, dashboards executivos
+            e integração de sistemas**.
+            """
+        )
         st.markdown(
             "🔗 [LinkedIn](https://www.linkedin.com/in/mike-castor-55267b172)  |  📧 mike12345191@gmail.com | 📞 (11) 9 6872-5870"
         )
